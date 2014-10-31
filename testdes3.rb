@@ -1,7 +1,6 @@
 require "base64"
 require "openssl"
 
-
 def encrypt(data)
   cipher = OpenSSL::Cipher::Cipher.new('DES-EDE3-CBC')
   cipher.encrypt # Must be called before anything else
