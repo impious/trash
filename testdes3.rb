@@ -38,3 +38,4 @@ puts b64_encrypted_string
 
 decrypted_string = decrypt(Base64.decode64(b64_encrypted_string))
 puts decrypted_string
+puts end
