@@ -10,7 +10,7 @@ def encrypt(data)
   # Alternatively, you can specify the initialization vector and cipher key
   # specifically using `cipher.iv = 'some iv'` and `cipher.key = 'some key'`
   #cipher.pkcs5_keyivgen('SOME_PASS_PHRASE_GOES_HERE')
-  cipher.iv='SPMS2014'
+  cipher.iv='XXXX2014'
   cipher.key='12345678901234567890123A'
   
   output = cipher.update(data)
@@ -25,7 +25,7 @@ def decrypt(data)
 
   #cipher.pkcs5_keyivgen('SOME_PASS_PHRASE_GOES_HERE')
   
-  cipher.iv='SPMS2014'
+  cipher.iv='XXXX2014'
   cipher.key='12345678901234567890123A'
   
   output = cipher.update(data)
