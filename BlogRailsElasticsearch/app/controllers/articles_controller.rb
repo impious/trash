@@ -19,6 +19,7 @@ def create
     render 'new'
   end
 end
+
  
 private
   def article_params
