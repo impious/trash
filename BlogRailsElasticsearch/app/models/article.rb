@@ -7,18 +7,35 @@ class Article < ActiveRecord::Base
 	def self.search(query)
 	  __elasticsearch__.search(
 	    {
-	      query: {
-	        multi_match: {
-	          query: query,
-	          fields: ['title^10', 'text']
-	        }
-	      },
-	      highlight: {
-	        pre_tags: ['<em>'],
-	        post_tags: ['</em>'],
-	        fields: {
-	          title: {},
-	          text: {}
+	      # query: {
+	      #   multi_match: {
+	      #     query: query,
+	      #     fields: ['title^10', 'text'],
+	        
+
+	      #   }
+	      # },
+		  	query: {
+		  		filtered:{
+		  			query:{
+						query_string: {
+							query: query,
+							fields: ['title', 'text'],
+							}
+						},
+						filter: {
+                			term: { title: 'aaaa' }
+                		}
+				}
+			},
+			 
+            
+	      	highlight: {
+		        pre_tags: ['<em>'],
+		        post_tags: ['</em>'],
+		        fields: {
+		          title: {},
+		          text: {}
 	        }
 	      }
 	    }
@@ -30,6 +47,7 @@ end
     		indexes :text, analyzer: 'english'
   			end
 	end
+
 end
 # Delete the previous articles index in Elasticsearch
 Article.__elasticsearch__.client.indices.delete index: Article.index_name rescue nil
