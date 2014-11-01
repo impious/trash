@@ -1,5 +1,5 @@
-require "base64"
-require "openssl"
+require 'base64'
+require 'openssl'
 
 def encrypt(data)
   cipher = OpenSSL::Cipher::Cipher.new('DES-EDE3-CBC')
@@ -38,4 +38,4 @@ puts b64_encrypted_string
 
 decrypted_string = decrypt(Base64.decode64(b64_encrypted_string))
 puts decrypted_string
-puts end
+puts 'end'
