@@ -28,8 +28,8 @@ class Hfuzz < Escort::ActionCommand::Base
 
   def httpclientbruteforce(url,line)
     clnt = HTTPClient.new
-
-    if clnt.get(url+'/'+line).status == 200
+  #  puts url+'/'+line
+    if clnt.get(url+'/'+line).status == 200 || clnt.get(url+'/'+line).status == 500 
       puts ":: Found url => #{url+'/'+line}".green
     end
   end
