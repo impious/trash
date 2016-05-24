@@ -12,7 +12,7 @@ class Hfuzz < Escort::ActionCommand::Base
 
       if File.exist?(file)
         puts ':: Found dictionary, checking urls'.green
-        File.foreach( 'dic.txt' ) do |line|
+        File.foreach( file ) do |line|
           threads << Thread.new do
             httpclientbruteforce(url,line.chomp)
           end
@@ -29,7 +29,7 @@ class Hfuzz < Escort::ActionCommand::Base
   def httpclientbruteforce(url,line)
     clnt = HTTPClient.new
   #  puts url+'/'+line
-    if clnt.get(url+'/'+line).status == 200 || clnt.get(url+'/'+line).status == 500 
+    if clnt.get(url+'/'+line).status == 200 || clnt.get(url+'/'+line).status == 500
       puts ":: Found url => #{url+'/'+line}".green
     end
   end
