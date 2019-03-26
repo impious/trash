@@ -1,0 +1,20 @@
+<!-- Main -->
+<div class="docs-section">
+     <!--<h6 class="docs-header">Manage</h6>-->
+       <div class="row">
+       <form action="/search" method="post">
+        <div class="nine columns"><input type="text" name="search_value" placeholder="type keywords" class="u-full-width" /></div>
+        <div class="three columns"><input type="submit" value="search" /></div>
+        </form>
+      </div>
+           
+      <% if @results %>
+        <% @results.each do |r| %>
+        <ul>
+        <li> <%= r.feed_name %> | <a href='<%=r.url%>' target="_blank"><%= r.name %></a></li>
+        </ul>
+        <% end %>
+     <% end %>
+
+
+</div>

@@ -1,0 +1,36 @@
+<!-- Main -->
+    <div class="docs-section">
+     <!--<h6 class="docs-header">Manage</h6>-->
+ 
+           <a href="/new">Add Feed</a> | <a href="/to_csv">to CSV</a><br><br>
+           <% if @feeds %>
+          
+             <table class="u-full-width">
+               <thead>
+               <tr>
+                 <th>Name</th>
+                 <th>Url</th>
+                 <th>&nbsp;</th>
+               </tr>
+             </thead>
+             <tbody>
+               <% @feeds.each do |feed| %>
+                 <tr>
+                   <td><%= feed.name %></td>
+                   <td><%= feed.url %></td>
+                   <td>
+                     <form action="/manage/<%=feed.id%>" method="post">
+                      <input type="hidden" name="_method" value="DELETE">
+                      <input class="button button-primary" type="submit" value="Remove?">
+                    </form>
+                  </td>
+                 </tr>
+                <% end %>
+              </tbody>
+             </table>
+       
+          <% end %>
+   
+
+      </div>
+ 

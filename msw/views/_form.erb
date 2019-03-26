@@ -1,0 +1,31 @@
+<div  class="docs-section">  
+  <h5><%= date.strftime("%a | %b %d")%></h5>
+ 
+  <% if @items %>
+   <% if @items.select { |key, value| value[:my_published] == date  }.count ==0 %>
+    <p> No feeds today</p>
+   <%else%>
+
+      <% @items.select { |key, value| value[:my_published] == date }.each do |key,value| %>
+
+        <p class="post">
+        <b><%=value[:feed_name]%></b> | <a href='<%=value[:url]%>' target="_blank"><%=value[:title] %></a> <a class="u-pull-right" href="/save_post?name=<%=value[:title]%>&url=<%=value[:url]%>&feed_name=<%=value[:feed_name]%>">Save</a><br/>
+        <% if value[:summary] %>
+           <% if value[:summary].length < 10000 %>
+              <%=value[:summary].html_safe%>
+           <%else%>
+              (...)
+              <p><a href='<%=value[:url]%>' target="_blank">Read More</a></p>
+           <%end%>
+         
+
+        <%end%>
+        <br/>
+        <%=value[:author]%>
+      </p>
+      <%end%>
+
+
+   <%end%>
+  <%end%>
+</div>

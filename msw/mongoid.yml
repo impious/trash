@@ -1,0 +1,14 @@
+production:
+  clients:
+    default:
+      uri: <%= ENV['MONGODB_URI'] %>
+      options:
+        skip_version_check: true
+        safe: true
+
+development:
+  clients:
+    default:
+      database: msw_development
+      hosts:
+        - 127.0.0.1:27017

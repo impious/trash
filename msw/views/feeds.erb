@@ -1,0 +1,27 @@
+    <div id="intro" class="docs-section">
+     <!--<h6 class="docs-header">Feeds</h6>-->
+     <p id="p_date"></p>
+       <%= erb :_form, locals: {date: Date.today,items_sorted: @items} %>
+       <%= erb :_form, locals: {date: Date.today-1.days,items_sorted: @items} %>
+       <%= erb :_form, locals: {date: Date.today-2.days,items_sorted: @items} %>
+       <%= erb :_form, locals: {date: Date.today-3.days,items_sorted: @items} %>
+       <%= erb :_form, locals: {date: Date.today-4.days,items_sorted: @items} %>
+       <%= erb :_form, locals: {date: Date.today-5.days,items_sorted: @items} %>
+       <%= erb :_form, locals: {date: Date.today-6.days,items_sorted: @items} %>
+       <%= erb :_form, locals: {date: Date.today-7.days,items_sorted: @items} %>
+     </div>
+   
+<script>
+function js_yyyy_mm_dd_hh_mm_ss () {
+  now = new Date();
+  year = "" + now.getFullYear();
+  month = "" + (now.getMonth() + 1); if (month.length == 1) { month = "0" + month; }
+  day = "" + now.getDate(); if (day.length == 1) { day = "0" + day; }
+  hour = "" + now.getHours(); if (hour.length == 1) { hour = "0" + hour; }
+  minute = "" + now.getMinutes(); if (minute.length == 1) { minute = "0" + minute; }
+//  second = "" + now.getSeconds(); if (second.length == 1) { second = "0" + second; }
+  return year + "-" + month + "-" + day + " " + hour + ":" + minute ;//+ ":" + second;
+}
+
+  document.getElementById("p_date").innerText ="Last Update: "+ js_yyyy_mm_dd_hh_mm_ss(Date());
+</script>

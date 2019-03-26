@@ -1,0 +1,67 @@
+
+<html>
+<head>
+  <title>My Small Week</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css"  type='text/css'/>
+  <link rel='stylesheet' href='css/skeleton.css' type='text/css'  />
+  <link rel='stylesheet' href='css/custom.css' type='text/css'  />
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="js/chartkick.js"></script>
+</head>
+<body>
+<div class="container"> 
+ 
+   <div id="menu" class="docs-section-lowerline ">
+       <ul class="navbar-list">
+        <% if current_user %>
+        <li class="navbar-item"><a class="navbar-link" href="/feeds">Feeds</a></li>
+        <li class="navbar-item"><a class="navbar-link" href="/search">Search</a></li>
+        <li class="navbar-item"><a class="navbar-link" href="/manage">Manage</a></li>
+        <li class="navbar-item"><a class="navbar-link" href="/signout">Bye [<%= current_user.name %>]</a></li>
+        <% end %>
+      </ul>
+  </div>
+
+ 
+  <% if flash[:info] %>
+    <div>
+      <div class='flash-info'><h3><%=flash[:info] %></h3></div>
+    </div> 
+  <%end%>
+  <% if flash[:error] %>
+    <section id="cta" class="wrapper style3">
+        <ul class="actions">
+          <li><%=flash[:error] %></li>
+        </ul>
+    </section>
+    <%end%>
+    <%= yield %>
+ 
+
+
+		<!-- Footer -->
+    <div id="footer" class="docs-section">
+    <ul class="navbar-list">
+          <li class="navbar-item"><a class="navbar-link" href="/">Root</a></li>
+          <% if current_user %>
+            <li class="navbar-item"><a class="navbar-link" href="/stats">Stats</a></li>
+          <% end %>
+          <li class="navbar-item"><a class="navbar-link" href="/faqs">FAQ</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="http://impious.github.io/" target="_blank">Contact</a></li>
+    </ul>
+    </div>
+</div>
+</body>
+</html>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85289910-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
