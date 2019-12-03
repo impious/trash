@@ -14,7 +14,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     bson (4.3.0)
     builder (3.2.3)
-    chartkick (2.2.5)
+    chartkick (3.3.0)
     colorize (0.8.1)
     crass (1.0.3)
     domain_name (0.5.20170404)
