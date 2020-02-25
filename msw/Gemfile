@@ -17,7 +17,7 @@ gem 'sanitize'
 #gem 'mongoid_fulltext'
 gem 'i18n','0.8.0'
 gem 'activesupport','4.2.7.1'
-gem 'nokogiri','1.6.8'
+gem 'nokogiri','1.10.8'
 #gem 'mustermann','0.4.0'
 gem "chartkick"
 # gem 'timber', '~> 2.1'
